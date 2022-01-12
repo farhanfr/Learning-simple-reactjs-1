@@ -28,6 +28,17 @@ class Home extends Component {
         })
     }
 
+    deleteSelectedTodo = (id) => {
+        const { deleteSelectedTodo } = mainTodoServices()
+        deleteSelectedTodo(id).then((res) => {
+           console.log(res.data)
+           this.getAllTodo()
+        }).catch((err) => {
+            console.log(err)
+        })
+    }
+    
+
     render() {
         return (
             <Fragment>
@@ -45,7 +56,7 @@ class Home extends Component {
                                     this.state.todoData.length > 0 ?
                                     this.state.todoData.map((data,index) => {
                                         return <Col key={data.id}>
-                                            <CardComponent title={data.title} description={data.description} />
+                                            <CardComponent todo={data} handleDeleteTodo={this.deleteSelectedTodo}/>
                                             <br/>
                                             </Col>
                                     }) : <h3>Empty todo</h3>

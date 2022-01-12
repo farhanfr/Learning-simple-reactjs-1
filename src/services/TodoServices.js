@@ -5,7 +5,8 @@ import { baseUrl } from "../utils"
 const mainTodoServices = () => {
     const getTodo = async () => await axios.get(`${baseUrl}/posts`)
     const addTodo = async (dataForm) => await axios.post(`${baseUrl}/posts`,dataForm)
-    return { getTodo, addTodo }
+    const deleteSelectedTodo = async (id) => await axios.delete(`${baseUrl}/posts/${id}`)
+    return { getTodo, addTodo, deleteSelectedTodo }
 }
 // const getTodo = async() =>{
 //     let data = []
