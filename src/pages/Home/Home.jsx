@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import { Button, Col, Container, Row, Spinner } from 'react-bootstrap';
+import { withRouter } from 'react-router';
 import { CardComponent } from '../../components';
 import { mainTodoServices } from '../../services/TodoServices';
 
@@ -13,6 +14,10 @@ class Home extends Component {
 
     componentDidMount() {
         this.getAllTodo()
+    }
+
+    handleToDetailPage = (id) =>{
+        this.props.history.push(`/todo/${id}`)
     }
 
     getAllTodo = () => {
@@ -38,7 +43,6 @@ class Home extends Component {
         })
     }
     
-
     render() {
         return (
             <Fragment>
@@ -56,7 +60,7 @@ class Home extends Component {
                                     this.state.todoData.length > 0 ?
                                     this.state.todoData.map((data,index) => {
                                         return <Col key={data.id}>
-                                            <CardComponent todo={data} handleDeleteTodo={this.deleteSelectedTodo}/>
+                                            <CardComponent todo={data} handleDeleteTodo={this.deleteSelectedTodo} handleToDetailPage={this.handleToDetailPage}/>
                                             <br/>
                                             </Col>
                                     }) : <h3>Empty todo</h3>
@@ -69,4 +73,4 @@ class Home extends Component {
     }
 }
 
-export default Home;
+export default withRouter(Home) 

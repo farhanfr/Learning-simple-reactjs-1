@@ -8,7 +8,7 @@ const CardComponent = (props) => {
             <h3>{props.todo.title}</h3>
             <p>{props.todo.description}</p>
             <div className='container-card-btn'>
-                <Button className='btn btn-primary'>Detail</Button>
+                <Button className='btn btn-primary'onClick={()=>props.handleToDetailPage(props.todo.id)}>Detail</Button>
                 <Button className='btn btn-success'>Update</Button>
                 <Button className='btn btn-danger' onClick={()=>{
                     if(window.confirm('Are you sure delete this todo ?'))

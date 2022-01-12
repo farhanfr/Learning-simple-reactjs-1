@@ -5,10 +5,10 @@ class About extends Component {
     render() { 
         return (
             <Fragment>
-            <CardComponent title={"About Website"}/>
+            <h3>About</h3>
             </Fragment>
         )
     }
 }
  
-export default About;
+export default About ;
