@@ -7,7 +7,8 @@ const mainTodoServices = () => {
     const getDetailTodo = async (id) => await axios.get(`${baseUrl}/posts/${id}`)
     const addTodo = async (dataForm) => await axios.post(`${baseUrl}/posts`,dataForm)
     const deleteSelectedTodo = async (id) => await axios.delete(`${baseUrl}/posts/${id}`)
-    return { getTodo, addTodo, deleteSelectedTodo, getDetailTodo }
+    const updateTodo = async (dataForm,id) => await axios.put(`${baseUrl}/posts/${id}`,dataForm)
+    return { getTodo, addTodo, deleteSelectedTodo, getDetailTodo, updateTodo }
 }
 // const getTodo = async() =>{
 //     let data = []

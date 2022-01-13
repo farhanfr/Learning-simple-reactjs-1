@@ -2,7 +2,7 @@
     padding: 15px;
 }
 
-.card .container-card-btn{
+.container-card-btn{
     display: flex;
     justify-content: space-between;
 }
